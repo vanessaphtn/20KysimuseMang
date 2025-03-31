@@ -15,7 +15,7 @@ Või seadistada lokaalselt oma arvutis.
 ### 1. Repositooriumi kloonimine
 Klooni repositoorium oma arvutisse:
 ```
-git clone https://github.com/vanessaphtn/20KysimuseMang.git`
+git clone https://github.com/vanessaphtn/20KysimuseMang.git
 cd 20KysimuseMang
 ```
 

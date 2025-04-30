@@ -7,7 +7,8 @@ See repositoorium koosneb kolmest kaustast:
 - `backend` – mängu loogika ja API  
 - `frontend` – kasutajaliides  
 
-Mängu saab mängida otse veebis: **[kysimustemang.pythonanywhere.com](https://kysimustemang.pythonanywhere.com)**  
+#### Mängu saab mängida otse veebis: **[kysimustemang.pythonanywhere.com](https://kysimustemang.pythonanywhere.com)**  
+
 Või seadistada lokaalselt oma arvutis. See eeldab nende olemasolu: Git (https://git-scm.com/downloads), Python (https://www.python.org/downloads/) ja Node.js (https://nodejs.org/)
 
 ## Lokaalne seadistamine

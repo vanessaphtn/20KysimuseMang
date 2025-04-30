@@ -29,6 +29,7 @@ import Navbar from '@/components/Navbar.vue';
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Jacquard+12&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Tiny5&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jersey+10&display=swap');
 .video-container {
   position: fixed;
   top: 0;

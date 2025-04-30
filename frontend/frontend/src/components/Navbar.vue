@@ -64,7 +64,7 @@ font-family: "Tiny5", serif;
   align-items: center;
   font-family: "Tiny5", serif;
   font-size: 20px;
-  color: black;
+  color: #ffe7bd;
   cursor: pointer;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
   border: 4px solid black;

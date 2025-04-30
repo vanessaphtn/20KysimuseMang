@@ -89,8 +89,9 @@ h3{
 }
 
 .question {
-  font-family: "Tiny5", serif;
-  font-size: 25px;
+  /*font-family: "Tiny5", serif;*/
+  font-family: "Jersey 10", sans-serif;
+  font-size: 40px;
   color: #ffe7bd;
   text-shadow: 4px 4px 0px black;
 }
@@ -109,7 +110,7 @@ h3{
   border: 4px solid black;
   color: black;
   padding: 12px 24px;
-  font-size: 20px;
+  font-size: 25px;
   cursor: pointer;
   box-shadow: 4px 4px 0px black;
   transition: all 0.1s ease-in-out;
@@ -137,11 +138,11 @@ h3{
 /* Make buttons responsive */
 .retro-button {
   font-family: "Tiny5", serif;
-  background-color: #3c2b61;
+  background-color: #925BB3;
   border: 4px solid black;
-  color: black;
+  color: #ffe7bd;
   padding: 12px 24px;
-  font-size: 16px;
+  font-size: 20px;
   text-transform: uppercase;
   cursor: pointer;
   box-shadow: 4px 4px 0px black;
@@ -158,6 +159,7 @@ h3{
   color: #ffe7bd;
   background-color: #925BB3;
   border: 4px solid #ffe7bd;
+  box-shadow: 7px 7px 0px black;
 }
 
 /* Responsive design */
@@ -170,6 +172,32 @@ h3{
     width: 100%; 
   }
 }
+
+@media (max-width: 600px) {
+  .button-group {
+    flex-direction: column; 
+  }
+
+  .retro-button {
+    width: 100%; 
+    font-size: 16px; /* smaller on small screens */
+  }
+
+  .question {
+    font-size: 24px; /* adjust question size */
+  }
+
+  .word-selection {
+    font-size: 18px; /* adjust word button size */
+    padding: 10px 20px;
+    min-width: 120px;
+  }
+
+  h3 {
+    font-size: 20px;
+  }
+}
+
 
 </style>
   

@@ -1,7 +1,12 @@
 <template>
   <div class="container">
-    <h2>Vali mängu kategooria:</h2>
+    <h2>VALI MÄNGU KATEGOORIA JA RASKUSASTE:</h2>
+    <h2>Lihtne → LOOMAD & VILJAD</h2>
+    <h2>Keskmine → LOOMAD, SÖÖDAVAD VILJAD </h2>
+    <h2> Keeruline → MINERAALID</h2>
+
     <div class="button-group">
+      <button @click="goToGame('easy')" class="retro-button">Loomad & Viljad</button>
       <button @click="goToGame('animals')" class="retro-button">Loomad</button>
       <button @click="goToGame('plants')" class="retro-button">Söödavad viljad</button>
       <button @click="goToGame('minerals')" class="retro-button">Mineraalid</button>
@@ -52,11 +57,11 @@ h2 {
 /* Make buttons responsive */
 .retro-button {
   font-family: "Tiny5", serif;
-  background-color: #3c2b61;
+  background-color: #925BB3;
   border: 4px solid black;
-  color: black;
+  color: #ffe7bd;
   padding: 12px 24px;
-  font-size: 16px;
+  font-size: 20px;
   text-transform: uppercase;
   cursor: pointer;
   box-shadow: 4px 4px 0px black;
@@ -74,6 +79,7 @@ h2 {
   color: #ffe7bd;
   background-color: #925BB3;
   border: 4px solid #ffe7bd;
+  box-shadow: 7px 7px 0px black;
 }
 
 /* Responsive design */

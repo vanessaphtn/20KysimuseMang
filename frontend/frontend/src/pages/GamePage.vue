@@ -29,7 +29,7 @@
 
 <script>
 import axios from "axios";
-import GameComponent from "@/Components/GameComponent.vue";
+import GameComponent from "../components/GameComponent.vue";
 
 export default {
   components: {
@@ -40,6 +40,7 @@ export default {
       question: "",
       loading: true,
       words: [],
+      gameId: "",
       category: "",
       history: [],
       gameOver: false,
@@ -55,22 +56,21 @@ export default {
     async loadWords() {
   try {
     const response = await axios.get(`/api/words/${this.category}`);
-    this.words = response.data;
+    this.words = response.data.words;
+    this.gameId = response.data.game_id;
 
     if (this.words.length > 0) { // Kontrollime, kas massiiv ei ole tühi
-      if (await this.startGame()) {
-        console.log("olen siin")
-        await this.getQuestion();
+      if (await this.startGame(this.gameId)) {
+        await this.getQuestion(this.gameId);
       }
-      console.log("ei lähe sisse")
     }
   } catch (error) {
     console.error("Sõnade laadimine ebaõnnestus:", error);
   }
 },
-async startGame() {
+async startGame(gameId) {
   try {
-    const response = await axios.get("/api/start");
+    const response = await axios.get(`/api/start?game_id=${gameId}`);
     if (response.status === 200) {
       // Tagastame true, kui mäng alustati edukalt
       return true;
@@ -82,10 +82,10 @@ async startGame() {
   return false;
 },
 
-    async getQuestion() {
+    async getQuestion(gameId) {
       try {
         this.loading = true;  // Määrame laadimise olekuks true
-        const response = await axios.get("/api/question");
+        const response = await axios.get(`/api/question?game_id=${gameId}`);
         this.loading = false;  // Lõpetame laadimise
 
         if (response.data.word) {
@@ -102,7 +102,7 @@ async startGame() {
     async handleAnswer(userAnswer) {
       try {
         this.loading = true;  // Määrame laadimise olekuks true
-        const response = await axios.post("/api/answer", { answer: userAnswer });
+        const response = await axios.post(`/api/answer?game_id=${this.gameId}`, { answer: userAnswer });
 
         await this.fetchHistory();
 
@@ -124,7 +124,7 @@ async startGame() {
 
     async fetchHistory() {
       try {
-        const response = await axios.get("/api/history");
+        const response = await axios.get(`/api/history?game_id=${this.gameId}`);
 
         this.history = response.data.questions.map((question, index) => ({
           question: question,
@@ -138,13 +138,13 @@ async startGame() {
 
     async undoLastAnswer() {
       try {
-      const response = await axios.post('/api/undo');
+      const response = await axios.post(`/api/undo?game_id=${this.gameId}`);
 
       // Kui päring õnnestub, värskendame ajalugu ja küsimust
       if (response.data.message) {
-        console.log(response.data.message); 
+        console.log(response.data.message);
         this.question = response.data.question;
-        await this.fetchHistory(); 
+        await this.fetchHistory();
       }
     } catch (error) {
       console.error('Viimase küsimuse tagasivõtmine ebaõnnestus:', error);
@@ -152,7 +152,7 @@ async startGame() {
   },
     async handleFinalAnswer(finalAnswer) {
       try {
-        const response = await axios.post("/api/end", { answer: finalAnswer });
+        const response = await axios.post(`/api/end?game_id=${this.gameId}`, { answer: finalAnswer });
         await this.fetchHistory();
         if (response.data.outcome) {
           console.log(response.data.outcome)
@@ -178,7 +178,7 @@ async startGame() {
 .container {
   text-align: center;  /* Center everything */
   background:rgb(80, 23, 74);
-  max-width: 50%; 
+  max-width: 50%;
   margin: 20px auto;
   padding: 40px;
   border-radius: 15px;
@@ -186,11 +186,19 @@ async startGame() {
 }
 
 .history{
-  font-family: "Tiny5", serif;
+  /*font-family: "Tiny5", serif; */
+  font-family: "Jersey 10", sans-serif;
   font-weight: 400;
   font-style: normal;
   color: #ffe7bd;
+  font-size: 25px;
   text-shadow: 4px 4px 0px black;
 
+}
+
+@media (max-width: 600px) {
+  .history {
+    font-size: 14px; 
+  }
 }
 </style>

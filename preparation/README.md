@@ -16,7 +16,8 @@ Failidest `{kategooria}_eeltöötlus.ipynb` võib leida järgneva eeltöötluse:
    - 4.2 Populaarsemate sõnade analüüs  
    - 4.3 Sobivate sõnade valimine  
 
-Ja failis `ConceptNet additions_{kategooria}` on lisaks veel ConceptNetist saadud küsimuste töötlemine.  
+Failis `ConceptNet additions_{kategooria}` on lisaks veel ConceptNetist saadud küsimuste töötlemine.
+Ja failis `kustutamised_ja_käsitisi_muutmised.ipynb` on näha küsimusi, mis käsitsi eemaldati või muudeti. Seal luuakse ka mängu 4. kategooria: Loomad & Viljad (lihtne versioon).
 
 Lisaks sellele on `loomad_eeltöötlus.ipynb` failis näha muid katsetusi, mis lõpplahendusse ei jõudnud.
  
